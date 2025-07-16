@@ -3,7 +3,7 @@ Name: Angelina Patterson
 Start Date: 7/3/25
 Description: The purpose of this program is to simulate the results from Figure 1 of Section 2.21.
 Second practice attempt with no random selection.
-Reference: Example 1 under section 2.21 from the paper "Artificial Chemistries—A Review" by "P . Dittrich et al. "
+Reference: Example 1 under section 2.21 from the paper "Artificial Chemistries—A Review" by P Dittrich et al. 
 '''
 import numpy as np
 import matplotlib.pyplot as plt
