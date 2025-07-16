@@ -1,16 +1,16 @@
 '''
 Name: Angelina Patterson
 Start Date: 7/3/25
-Description:The puropse of this program is to simulate the results form Figure 1 of Section 2.21.
+Description: The purpose of this program is to simulate the results from Figure 1 of Section 2.21.
 Second practice attempt with no random selection.
-Refrence: Example 1 under section 2.21 form the paper "Artificial Chemistries—A Review" by "P . Dittrich et al. "
+Reference: Example 1 under section 2.21 from the paper "Artificial Chemistries—A Review" by "P . Dittrich et al. "
 '''
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 #Define molecules
-molecules = {"A": 500, "B": 500} # store into a dictonary
-# keeps tracks of the reactions that occur while the program runs
+molecules = {"A": 5, "B": 5} # store into a dictionary
+# keeps track of the reactions that occur while the program runs
 updated_molecules = []
 #Define the reactions r1 - r4
 def r1(molecules):
@@ -34,9 +34,9 @@ def r4(molecules):
         molecules["A"] += 1
         return True
     return None
-# store r1 - r4 into an array to be randomly selected
+# Store r1-r4 into an array to be randomly selected
 reactions = [r1, r2, r3, r4]
-for step in range(2000):
+for step in range(10):
     # if the reaction cannot occur
     reaction_occur = False
 
@@ -60,8 +60,8 @@ for step in range(2000):
     if not reaction_occur:
         break
 
-# plot the reactions on to a plot
-# Unpack the tuples into separate step, concentration a and b
+# plot the reactions onto a plot
+# Unpack the tuples into separate steps, concentrating a and b
 steps, Concentration_A, Concentration_B = zip(*updated_molecules)
 # creating the plot
 plt.figure(figsize=(10, 5))
