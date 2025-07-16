@@ -1,15 +1,15 @@
 '''
 Name: Angelina Patterson
 Start Date: 7/3/25
-Description:The puropse of this program is to simulate the results form Figure 1 of Section 2.21.
-Refrence: Example 1 under section 2.21 form the paper "Artificial Chemistries—A Review" by "P . Dittrich et al. "
+Description: The purpose of this program is to simulate the results from Figure 1 of Section 2.21.
+Reference: Example 1 under section 2.21 from the paper "Artificial Chemistries—A Review" by "P . Dittrich et al. "
 '''
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 #Define molecules
-molecules = {"A": 5, "B": 5} # store into a dictonary
-# keeps tracks of the reactions that occur while the program runs
+molecules = {"A": 5, "B": 5} # store into a dictionary
+# keeps track of the reactions that occur while the program runs
 updated_molecules = []
 #Define the reactions r1 - r4
 def r1(molecules):
@@ -33,9 +33,9 @@ def r4(molecules):
         molecules["A"] += 1
         return True
     return None
-# store r1 - r4 into an array to be randomly selected
+# Store r1-r4 into an array to be randomly selected
 reactions = [r1, r2, r3, r4]
-# loop to apply the reactions at random for a certain amount of steps
+# loop to apply the reactions at random for a certain number of steps
 step = 1
 # for the retrying
 retry = 0
@@ -44,25 +44,25 @@ while step <= 10:
     rand_rxn = random.choice(reactions)
     # set to for checking if enough molecules to run
     run_results = rand_rxn(molecules)
-    # if a reactions occurs append to the empty array and break to step in the loop
+    # if a reaction occurs, append to the empty array and break to step in the loop
     if run_results:
         # convert molecule count to %
         total = molecules["A"] + molecules["B"]
         percentage_A = (molecules["A"] / total) * 100
         percentage_B = (molecules["B"] / total) * 100
         updated_molecules.append((step,percentage_A, percentage_B))
-        # step up by to run the loop again and looks to apply the reactions once more
+        # step up to run the loop again and look to apply the reactions once more
         step += 1
         # rest counter if needed
         retry = 0
-    # increasing retry counter each time it fails
+    # increasing the retry counter each time it fails
     else:
         retry += 1
-    # to keep it not infinitely retrying it will stop if this condition is met
+    # to keep it not infinitely retrying ,it will stop if this condition is met
     if retry >= 10:
         break
-# plot the reactions on to a plot
-# Unpack the tuples into separate step, concentration a and b
+# plot the reactions onto a plot
+# Unpack the tuples into separate steps, concentrating a and b
 steps, Concentration_A, Concentration_B = zip(*updated_molecules)
 # creating the plot
 plt.figure(figsize=(10, 5))
